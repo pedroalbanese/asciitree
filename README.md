@@ -1,2 +1,2 @@
 # ascii-tree
-Prints an ascii tree from a golang tree
+Prints an ascii tree from a golang map
