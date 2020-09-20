@@ -3,14 +3,12 @@ package asciitree
 import (
 	"fmt"
 	"io"
-	"regexp"
 )
 
 type TreeNode struct {
 	Name string
 	Data int
-  }
-	type Tree1 map[*regexp.Regexp]Tree
+}
 
 // Tree can be any map with:
 // 1. Key that has method 'String() string'
