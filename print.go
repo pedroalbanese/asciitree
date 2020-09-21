@@ -5,14 +5,10 @@ import (
 	"io"
 )
 
-type TreeNode struct {
-	Name string
-	Data int
-}
-
 // Tree can be any map with:
 // 1. Key that has method 'String() string'
 // 2. Value is Tree itself
+// You can replace this with your own tree
 type Tree map[string]Tree
 
 func (tree Tree) Fprint(w io.Writer, root bool, padding string) {
