@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	asciitree "github.com/tufin/ascii-tree"
+	asciitree "github.com/tufin/asciitree"
 )
 
 func Test_EmptyTree(t *testing.T) {
