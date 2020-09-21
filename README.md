@@ -1,4 +1,4 @@
-# ascii-tree
+# asciitree
 Prints an ascii tree from a golang map
 
 For example:
