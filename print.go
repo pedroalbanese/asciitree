@@ -3,6 +3,7 @@ package asciitree
 import (
 	"fmt"
 	"io"
+	"strings"
 )
 
 // Tree can be any map with:
@@ -10,6 +11,25 @@ import (
 // 2. Value is Tree itself
 // You can replace this with your own tree
 type Tree map[string]Tree
+
+func (tree Tree) Add(path string) {
+	frags := strings.Split(path, "/")
+	tree.add(frags)
+}
+
+func (tree Tree) add(frags []string) {
+	if len(frags) == 0 {
+		return
+	}
+
+	nextTree, ok := tree[frags[0]]
+	if !ok {
+		nextTree = Tree{}
+		tree[frags[0]] = nextTree
+	}
+
+	nextTree.add(frags[1:])
+}
 
 func (tree Tree) Fprint(w io.Writer, root bool, padding string) {
 	if tree == nil {

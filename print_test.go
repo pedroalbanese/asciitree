@@ -14,34 +14,32 @@ func Test_EmptyTree(t *testing.T) {
 }
 
 func Test_OneLevel(t *testing.T) {
-	tree := asciitree.Tree{
-		"root": nil,
-	}
+	tree := asciitree.Tree{}
+	tree.Add("/root")
 
 	tree.Fprint(os.Stdout, true, "")
 }
 
 func Test_TwoLevels(t *testing.T) {
-	tree := asciitree.Tree{
-		"root": asciitree.Tree{"sibling": nil},
-	}
+	tree := asciitree.Tree{}
+	tree.Add("/root/sibling")
 
 	tree.Fprint(os.Stdout, true, "")
 }
 
 func Test_TwoSiblings(t *testing.T) {
-	tree := asciitree.Tree{
-		"root": asciitree.Tree{"sibling1": nil, "sibling2": nil},
-	}
+	tree := asciitree.Tree{}
+	tree.Add("/root/sibling1")
+	tree.Add("/root/sibling2")
 
 	tree.Fprint(os.Stdout, true, "")
 }
 
 func Test_TwoRoots(t *testing.T) {
-	tree := asciitree.Tree{
-		"root1": asciitree.Tree{"sibling1": nil, "sibling2": asciitree.Tree{"sibling1": nil, "sibling2": nil}},
-		"root2": asciitree.Tree{"sibling1": nil, "sibling2": nil},
-	}
-
+	tree := asciitree.Tree{}
+	tree.Add("/root/sibling1")
+	tree.Add("/root/sibling2/sibling1")
+	tree.Add("/root/sibling2/sibling2")
+	
 	tree.Fprint(os.Stdout, false, "")
 }
