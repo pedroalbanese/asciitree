@@ -1,3 +1,3 @@
-module github.com/tufin/asciitree
+module github.com/pedroalbanese/asciitree
 
 go 1.15
